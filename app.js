@@ -4,7 +4,6 @@ const port = process.env.PORT || 5000;
 
 app.use('/', express.static(__dirname)).listen(port, () => {
     console.log(`listening on port ${port}`);
-    res.next();
 });
 
 app.get('/', (req, res) => {
