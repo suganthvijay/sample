@@ -1,0 +1,185 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Source Sans Pro;
+    color: white;
+    box-sizing:border-box;
+}
+html, body{
+    height: 100%;
+}
+body{
+    height: 200%;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+}
+.logo a{
+    font-size: 2em;
+    letter-spacing: .3em;
+}
+a{
+    display: block;
+    text-decoration: none;
+    outline: none;
+    font-size: 1.5em;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.landing{
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to top, orangered, orange);
+}
+.arrow{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: scale(1.5);
+    background: purple;
+    border-radius: 50%;
+    box-shadow: 3px 3px 20px purple;
+    cursor: pointer;
+}
+.arrow img{
+    position: absolute;
+    top: 45%;
+    left: 33.55%;
+}
+.landing h1{
+    color: purple;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-size: 2.5em;
+    word-spacing: 1em;
+    letter-spacing: 10px;
+    transform: translateX(-50%);
+}
+.navBar{
+    background: purple;
+    transition: 1s;
+}
+.sgin{
+    background: aqua;
+    width: 100px;
+    text-align: center;
+    transition: .3s;
+}
+.menu a:hover{
+    background: white;
+    color: orangered;
+    transition: .3s;
+}
+.btn{
+    position: absolute;
+    top: 70%;
+    left: 49.55%;
+    transform: translate(-30%,-50%);
+    width: 150px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: orange;
+    font-size: 1.2em;
+    transition: .3s;
+    cursor: pointer;
+}
+.btn:hover{
+    width: 180px;
+    height: 60px;
+    font-size: 1.5em;
+    box-shadow: 1px 1px 10px orange;
+    transition: .3s;
+}
+.content{
+    height: 90vh;
+    background: red;
+    overflow: hidden;
+    position: relative;
+}
+.content h1{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-size: 3em;
+    word-spacing: 1em;
+    letter-spacing: 10px;
+}
+.clip{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.clip2{
+    top: 40px;
+}
+.clip1{
+    z-index: 2;
+    bottom: -100px;
+    width: 50%;
+}
+.text{
+    position: absolute;
+    opacity: 0;
+    top: 40%;
+    left: 13%;
+    width: 22%;
+    height: 50%;
+    box-shadow: 1px 1px 20px orange;
+    padding: 10px;
+    padding-top: 50px;
+    border-radius: 10px;
+    background: orange;
+}
+.exp{
+    height: 70vh;
+    background: linear-gradient(rgb(23, 212, 23), green);
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+}
+.exp p{
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    font-size: 3em;
+    padding: 20px;
+    background: red;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px red;
+}
+.join{
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url("images/people.png")center/cover no-repeat;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.join button{
+    position: relative;
+    top: 80px;
+    width: 140px;
+    height: 50px;
+    font-size: 1.3em;
+    border-radius: 10px;
+    background: gold;
+    border: none;
+    box-shadow: 1px 1px 20px gold;
+    outline: none;
+}
+footer{
+    height: 20vh;
+    background: #1d2b34;
+}

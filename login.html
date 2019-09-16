@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c5ad0c4c65.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+</head>
+<body>
+    <form method = "POST" class = "animate">
+        <h1>Login</h1>
+        <div class = "txtb">
+            <i class="fas fa-user"></i>
+            <input required type="text" class = 'name' name = "name" placeholder=  "Username">
+        </div>
+        <div class = "txtb">
+            <i class = "fas fa-lock"></i>
+            <input required type="password" class = "pass" name = "password" placeholder = "Password" >
+        </div>
+        <div >
+            <input class = "btn" type="submit" value = "login">
+        </div>
+        <p>Don't have an account?</p><a href="#">Sign up</a>
+    </form>
+    <script>
+            $("form").hide(100,function(){
+                $("form").removeClass("animate");
+            });
+            $("form").show(350);
+            $(".btn").click(function(){
+                TweenMax.to(".btn", 2, {rotation: 360, ease: Elastic.easeOut});
+            });
+    </script>
+</body>
+</html>
