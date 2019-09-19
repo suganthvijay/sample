@@ -79,6 +79,9 @@ a{
     color: orangered;
     transition: .3s;
 }
+.link{
+    display: inline;
+}
 .btn{
     position: absolute;
     top: 70%;
@@ -90,14 +93,14 @@ a{
     border: none;
     border-radius: 10px;
     background: orange;
-    font-size: 1.2em;
+    font-size: .8em;
     transition: .3s;
     cursor: pointer;
 }
 .btn:hover{
     width: 180px;
     height: 60px;
-    font-size: 1.5em;
+    font-size: 1em;
     box-shadow: 1px 1px 10px orange;
     transition: .3s;
 }
@@ -176,10 +179,17 @@ a{
     border-radius: 10px;
     background: gold;
     border: none;
-    box-shadow: 1px 1px 20px gold;
     outline: none;
+    transition: .3s;
+}
+.join button:hover{
+    box-shadow: 2px 2px 30px gold;
+    transition: .5s;
 }
 footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 20vh;
     background: #1d2b34;
 }
