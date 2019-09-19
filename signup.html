@@ -13,8 +13,10 @@
        if(document.form.email.value.match(mailchk)){
            if(document.form.pass.value === document.form.r_pass.value){
                 alert("You are Succesfully Signed Up at "+ new Date().toLocaleString());
+                return true;
            }else{
                alert("password does not match");
+               return false;
            }
        }
        else{
