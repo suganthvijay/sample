@@ -71,6 +71,7 @@ button{
     transition: .3s;
 }
 button:hover{
-    box-shadow: 2px 2px 30px orangered;
+    background: rgb(12, 151, 206);
+    box-shadow: 2px 2px 30px rgb(12, 151, 206);;
     transition: .5s;
 }
