@@ -13,8 +13,10 @@
        if(document.form.email.value.match(mailchk)){
            if(document.form.pass.value === document.form.r_pass.value){
                 alert("You are Succesfully Signed Up at "+ new Date().toLocaleString());
+                return true;
            }else{
                alert("password does not match");
+               return false;
            }
        }
        else{
@@ -25,7 +27,7 @@
     </script>
 </head>
 <body>
-    <form name = "form" action="" onsubmit = "check()" method = "POST" autocomplete="off">
+    <form name = "form" action="/" onsubmit = "return check()" method = "POST" autocomplete="off">
         <h1>Sign Up</h1>
         <input class = "top" type="text" name = "name" placeholder = "Enter Username" required>
         <input type="text" name = "email" placeholder = "Enter Email" required>
@@ -33,7 +35,7 @@
         <input type="text" name = "r_pass" placeholder = "Re-type Password" required>
         <input class = "btn" type="submit" value = "Sign Up">
         <p>Already have an account?</p>
-        <button><a href = "login.html">Sign In</a></button>
+        <button><a href = "/login">Sign In</a></button>
     </form>
 </body>
 </html>
