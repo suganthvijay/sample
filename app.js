@@ -11,8 +11,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/blog.html');
 });
 
+//login  page
 app.get('/login' , (req, res) => {
-    res.sendFile(__dirname + '/signup.html');
+    res.sendFile(__dirname + '/login.html');
 });
 app.post('/login' , (req, res) => {
     res.sendFile(__dirname + '/blog.html');
