@@ -17,14 +17,14 @@ app.post('/', (req, res) => {
 app.get('/login' , (req, res) => {
     res.sendFile(__dirname + '/login.html');
 });
-app.post('/login' , (req, res) => {
-    res.sendFile(__dirname + '/blog.html');
-});
+// app.post('/login' , (req, res) => {
+//     res.sendFile(__dirname + '/blog.html');
+// });
 
 //Sign Up Page
 app.get('/signup' , (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 });
-app.post('/signup' , (req, res) => {
-    res.sendFile(__dirname + '/blog.html');
-});
+// app.post('/signup' , (req, res) => {
+//     res.sendFile(__dirname + '/blog.html');
+// });
