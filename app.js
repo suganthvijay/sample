@@ -10,7 +10,9 @@ app.use('/', express.static(__dirname)).listen(port, () => {
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/blog.html');
 });
-
+app.post('/', (req, res) => {
+    res.sendFile(__dirname + '/blog.html');
+});
 //login  page
 app.get('/login' , (req, res) => {
     res.sendFile(__dirname + '/login.html');
