@@ -8,27 +8,32 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="signup.css">
     <script>
-     function check(){  
-        const mailchk =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-       if(document.form.email.value.match(mailchk)){
-           if(document.form.pass.value === document.form.r_pass.value){
-                return true;
-           }else{
-               alert("password does not match");
-               return false;
-           }
-       }
-       else{
-           alert("invalid Email Address");
-           return false;
-       }
-     }
+     function check(){
+       const mailchk =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+       if(document.querySelector('.msg').innerText != "username not available"){
+            if(document.form.email.value.match(mailchk)){
+                if(document.form.pass.value === document.form.r_pass.value){
+                    return true;
+                }else{
+                    alert("password does not match");
+                    return false;
+                }
+            }else{
+                alert("invalid Email Address");
+                return false;
+            }
+        }else{
+            document.form.name.focus();
+            return false;
+        }
+    }      
     </script>
 </head>
 <body>
     <form name = "form" action = "/" onsubmit = "return check()" method = "POST" autocomplete="off">
         <h1>Sign Up</h1>
         <input class = "top" type="text" name = "name" placeholder = "Enter Username" required>
+        <div class = "msg"></div>
         <input type="text" name = "email" placeholder = "Enter Email" required>
         <input type="password" name = "pass" placeholder = "Enter Password" required>
         <input type="password" name = "r_pass" placeholder = "Re-type Password" required>
@@ -36,5 +41,28 @@
         <p>Already have an account?</p>
         <button><a href = "/login">Sign In</a></button>
     </form>
+    <script>
+         let name = document.form.name;
+         name.addEventListener('blur', ajax);
+         let msg = document.querySelector('.msg');
+         //ajax call  
+         function ajax(){
+
+             let xhr = new XMLHttpRequest();
+             xhr.open('get', '/check/'+name.value, true);
+             xhr.onload = function() {
+                 if(this.status == 200){
+                     if(xhr.responseText == ''){
+                        msg.style.color = 'green';
+                        msg.innerText = 'username available';
+                     }else{
+                         msg.style.color = 'red';
+                         msg.innerText = 'username not available';
+                     }
+                }
+            }
+            xhr.send();
+        }
+    </script>
 </body>
 </html>

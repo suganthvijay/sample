@@ -41,6 +41,29 @@ app.get('/signup' , (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 });
 
+//checking page
+app.get('/check/:id', (req, res) => {
+    let name = req.params.id;
+    client.connect(err => {
+        if(err){
+            console.log(err);
+        }else{
+            const collection = client.db('sample').collection('users');
+            collection.findOne({Name: name} ,(err, result) => {
+                if(err){
+                    console.log(err);
+                }else{
+                    res.send(result);
+                }
+            });
+        }
+        client.close();
+    })
+})
+
+
+
+
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
