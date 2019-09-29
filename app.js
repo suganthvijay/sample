@@ -1,15 +1,24 @@
 const express = require('express');
 const app = express();
+const session = require('express-session');
 const client = require('./db');
 const port = process.env.PORT || 5000;
 
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use('/', express.static(__dirname));
 
+let ssn;
+
 app.get('/', (req, res) => {
+    ssn = req.session;
+    if(ssn.name){
+        res.redirect('/Posts');
+    }
     res.sendFile(__dirname + '/blog.html');
 });
-app.post('/', (req, res) => {
+app.post('/signup', (req, res) => {
     let name = req.body.name;
     let email = req.body.email;
     let pass = req.body.pass;
@@ -26,7 +35,7 @@ app.post('/', (req, res) => {
                 Date: date
             });
             client.close();
-            res.send('successfully logged in');
+            res.redirect('/Posts');
         }
     })
 
@@ -60,8 +69,32 @@ app.get('/check/:id', (req, res) => {
         client.close();
     })
 })
+app.post('/login', (req, res) => {
+    ssn = req.session;
+    ssn.name =  req.body.name;
+    res.redirect('/Posts');
+})
 
 
+
+app.get('/Posts', (req, res) => {
+    ssn = req.session;
+    if(ssn.name){
+        res.send(`<h1>hey ${ssn.name}!</h1><a href = "/logout">logout</a>`);
+    }else{
+        res.send('<h1>Please Login First!</h1><a href = "/login">login</a>');
+    } 
+})
+
+app.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect('/');
+        }
+    })
+})
 
 
 app.listen(port, () => {
